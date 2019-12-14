@@ -6,44 +6,24 @@ import styledNormalize from 'styled-normalize'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 
-const GlobalStyle = createGlobalStyle`
-  ${styledNormalize}
-  html, body {
-    width: 100vw;
-    height: 100vh;
-  }
-  #__next {
-    height: 100%;
-  }
-`
 
-const Main = styled.div`
+const Wrapper = styled.div`
   padding: ${props => props.theme.spacing.m};
   grid-area: main;
   background-color: ${({ theme }) => theme.color.primary};
 `
 
-const Side = styled.div`
-  grid-area: side;
-`
 
-const Index = ({ title, posts }) => (
-  <Layout>
-    <GlobalStyle />
-      <Header title={title}/>
-      <Main>
-        { posts.map(({ document, slug}) => {
-          return (
-          <Link href={`/posts/${slug}`}>
-            <a>{document.data.title}</a>
-          </Link>
-          )
-        }) }
-      </Main>
-      <Side>
-        Side content
-      </Side>
-  </Layout>
+const Index = () => (
+  <Wrapper>
+    { posts.map(({ document, slug}) => {
+      return (
+      <Link href={`/posts/${slug}`}>
+        <a>{document.data.title}</a>
+      </Link>
+      )
+    }) }
+  </Wrapper>
 )
 
 Index.getInitialProps = async () => {

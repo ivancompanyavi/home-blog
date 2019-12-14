@@ -1,18 +1,19 @@
-import Link from 'next/link';
+import styled from 'styled-components'
 
-const linkStyle = {
-  marginRight: 15
-};
+const Wrapper = styled.header`
+  grid-area: header;
+  background-color: ${props => props.theme.color.primaryDark};
+`
 
-const Header = () => (
-  <div>
-    <Link href="/">
-      <a style={linkStyle}>Home</a>
-    </Link>
-    <Link href="/about">
-      <a style={linkStyle}>About</a>
-    </Link>
-  </div>
+const Header = ({ title }) => (
+  <Wrapper>
+    <h1>{title}</h1>
+  </Wrapper>
 );
+
+Header.getInitialProps = async () => {
+  const configData = await import('../data/config.json')
+  return { ...configData }
+}
 
 export default Header;
