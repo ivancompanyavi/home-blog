@@ -5,22 +5,18 @@ import styledNormalize from 'styled-normalize'
 
 import Layout from '../components/Layout'
 import Header from '../components/Header'
+import Main from '../components/Main'
 
 const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
   html, body {
     width: 100vw;
     height: 100vh;
+    font-family: Open Sans;
   }
   #__next {
     height: 100%;
   }
-`
-
-const Main = styled.div`
-  padding: ${props => props.theme.spacing.m};
-  grid-area: main;
-  background-color: ${({ theme }) => theme.color.primary};
 `
 
 const Side = styled.div`
@@ -31,15 +27,7 @@ const Index = ({ title, posts }) => (
   <Layout>
     <GlobalStyle />
       <Header title={title}/>
-      <Main>
-        { posts.map(({ document, slug}) => {
-          return (
-          <Link href={`/posts/${slug}`}>
-            <a>{document.data.title}</a>
-          </Link>
-          )
-        }) }
-      </Main>
+      <Main posts={posts} />
       <Side>
         Side content
       </Side>

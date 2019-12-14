@@ -1,11 +1,6 @@
 import Link from 'next/link'
 import matter from 'gray-matter'
-import styled, { createGlobalStyle } from 'styled-components'
-import styledNormalize from 'styled-normalize'
-
-import Layout from '../components/Layout'
-import Header from '../components/Header'
-
+import styled from 'styled-components'
 
 const Wrapper = styled.div`
   padding: ${props => props.theme.spacing.m};
@@ -13,8 +8,7 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.color.primary};
 `
 
-
-const Index = () => (
+const Main = ({ posts }) => (
   <Wrapper>
     { posts.map(({ document, slug}) => {
       return (
@@ -26,38 +20,4 @@ const Index = () => (
   </Wrapper>
 )
 
-Index.getInitialProps = async () => {
-  const configData = await import('../data/config.json')
-  const posts = (context => {
-    // grab all the files matching this context
-    const keys = context.keys()
-    // grab the values from these files
-    const values = keys.map(context)
-    // go through each file
-    const data = keys.map((key, index) => {
-      // Create slug from filename
-      const slug = key
-        .replace(/^.*[\\\/]/, '')
-        .split('.')
-        .slice(0, -1)
-        .join('.')
-      // get the current file value
-      const value = values[index]
-      // Parse frontmatter & markdownbody for the current file
-      const document = matter(value.default)
-      // return the .md content & pretty slug
-      return {
-        document,
-        slug,
-      }
-    })
-    // return all the posts
-    return data
-  })(require.context('../posts', true, /\.md$/))
-  return {
-    ...configData,
-    posts,
-  }
-}
-
-export default Index
+export default Main
