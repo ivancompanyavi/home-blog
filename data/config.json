@@ -1,4 +1,9 @@
 {
   "title": "Coding Llamas",
-  "description": "Because you can be cool and also coder"
+  "description": "Because you can be cool and also coder",
+  "social": {
+    "twitter": "https://twitter.com/CodingLlamas",
+    "facebook": "https://www.facebook.com/coding.llamas.1",
+    "instagram": "https://www.instagram.com/codingllamas"
+  }
 }

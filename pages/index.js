@@ -13,29 +13,23 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     height: 100vh;
     font-family: Open Sans;
+    color: ${({theme}) => theme.color.text};
   }
   #__next {
     height: 100%;
   }
 `
 
-const Side = styled.div`
-  grid-area: side;
-`
-
-const Index = ({ title, posts }) => (
+const Index = ({ config, posts }) => (
   <Layout>
     <GlobalStyle />
-      <Header title={title}/>
+      <Header config={config} />
       <Main posts={posts} />
-      <Side>
-        Side content
-      </Side>
   </Layout>
 )
 
 Index.getInitialProps = async () => {
-  const configData = await import('../data/config.json')
+  const config = await import('../data/config.json')
   const posts = (context => {
     // grab all the files matching this context
     const keys = context.keys()
@@ -63,7 +57,7 @@ Index.getInitialProps = async () => {
     return data
   })(require.context('../posts', true, /\.md$/))
   return {
-    ...configData,
+    config,
     posts,
   }
 }

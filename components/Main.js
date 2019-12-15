@@ -1,22 +1,18 @@
-import Link from 'next/link'
-import matter from 'gray-matter'
 import styled from 'styled-components'
+
+import PostCard from './PostCard'
 
 const Wrapper = styled.div`
   padding: ${props => props.theme.spacing.m};
   grid-area: main;
-  background-color: ${({ theme }) => theme.color.primary};
+  background-color: ${({ theme }) => theme.color.secondary};
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 `
 
 const Main = ({ posts }) => (
   <Wrapper>
-    { posts.map(({ document, slug}) => {
-      return (
-      <Link href={`/posts/${slug}`}>
-        <a>{document.data.title}</a>
-      </Link>
-      )
-    }) }
+    { posts.map(post => <PostCard post={post} />) }
   </Wrapper>
 )
 

@@ -12,7 +12,6 @@ Blog.getInitialProps = async (context: NextPageContext) => {
   const post = await import(`../../posts/${context.query.slug}.md`)
   const data = await import ('../../data/config.json')
   const document = matter(post.default)
-  console.log(document)
   return {
     post: document,
     data,

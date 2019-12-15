@@ -22,6 +22,10 @@ module.exports = {
       test: /\.md$/,
       use: 'raw-loader',
     })
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: 'svg-inline-loader',
+    })
     return config
   },
 };

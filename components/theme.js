@@ -2,8 +2,9 @@ import { darken, lighten } from 'polished'
 const spacingBase = 1
 const spacingUnit = 'rem'
 
-const colorPrimary = '#edb058'
-const colorSecondary = '#e7ede4'
+const colorPrimary = '#0277bd'
+const colorSecondary = '#ffffff'
+const colorText = '#ffffff'
 
 export default {
   spacing: {
@@ -14,6 +15,7 @@ export default {
     xl: `${spacingBase * 1.5}${spacingUnit}`,
   },
   color: {
+    text: colorText,
     primary: colorPrimary,
     primaryDark: darken(0.3, colorPrimary),
     primaryLight: lighten(0.3, colorPrimary),
