@@ -1,6 +1,7 @@
 const fetch = require('isomorphic-unfetch');
+const withCSS = require('@zeit/next-css')
 
-module.exports = {
+module.exports = withCSS({
   exportTrailingSlash: true,
   exportPathMap: async function() {
     const paths = {
@@ -28,4 +29,4 @@ module.exports = {
     })
     return config
   },
-};
+});
