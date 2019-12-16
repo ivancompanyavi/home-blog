@@ -44,10 +44,10 @@ const Contact = styled.div`
   justify-content: flex-end;
 `
 
-const renderLogo = (logo, link) => {
+const renderLogo = (logo, link, label) => {
   return (
     <Logo>
-      <a href={link} target="_blank">
+      <a href={link} target="_blank" aria-label={`${label} logo`}>
         {<span dangerouslySetInnerHTML={{__html: logo}} />}
       </a>
     </Logo>
@@ -57,11 +57,11 @@ const renderLogo = (logo, link) => {
 const Header = ({ config }) => (
   <Wrapper>
     <Menu />
-    <Title>{config.title}</Title>
+    <Title aria-label="Blog name">{config.title}</Title>
     <Contact>
-      { renderLogo(TwitterLogo, config.social.twitter) }
-      { renderLogo(InstagramLogo, config.social.instagram) }
-      { renderLogo(FacebookLogo, config.social.facebook) }
+      { renderLogo(TwitterLogo, config.social.twitter, 'Twitter') }
+      { renderLogo(InstagramLogo, config.social.instagram, 'Instagram') }
+      { renderLogo(FacebookLogo, config.social.facebook, 'Facebook') }
     </Contact>
   </Wrapper>
 );

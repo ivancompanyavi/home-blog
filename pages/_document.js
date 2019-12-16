@@ -1,5 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from "styled-components"
+import config from '../data/config.json'
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -19,8 +20,9 @@ export default class MyDocument extends Document {
   }
   render() {
     return (
-      <html>
+      <html lang="en">
         <Head>
+          <title>{config.title}</title>
           <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
           {this.props.styleTags}
         </Head>

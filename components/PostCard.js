@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const MAX_CONTENT_CHARS = 200
 
-const Card = styled.div`
+const Card = styled.article`
   cursor: pointer;
   background-color: ${({theme}) => theme.color.primary};
   margin: ${({theme}) => theme.spacing.m};
@@ -29,8 +29,9 @@ const Content = styled.div`
   padding: ${({theme}) => theme.spacing.m};
 `
 
-const Title = styled.h4`
-  color: ${({theme}) => theme.color.primaryLight};
+const Title = styled.h1`
+  font-size: ${({theme}) => theme.spacing.l};
+  color: ${({theme}) => theme.color.secondary};
   text-align: center;
 `
 
@@ -46,8 +47,8 @@ const getText = (content) => {
 const PostCard = ({ post }) => {
   return (
     <Link href={`/posts/${post.slug}`}>
-      <Card>
-        <Image src={post.document.data.image}></Image>
+      <Card tabIndex={0}>
+        <Image role="button" tabIndex={0} alt={post.document.data.title} src={post.document.data.image} />
         <Content>
           <Title>{post.document.data.title}</Title>
           <Text>{getText(post.document.content)}</Text>

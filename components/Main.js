@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import PostCard from './PostCard'
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
   padding: ${props => props.theme.spacing.m};
   grid-area: main;
   background-color: ${({ theme }) => theme.color.secondary};
