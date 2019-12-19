@@ -3,7 +3,7 @@ title: "print(self)"
 description: "Hora de las presentaciones"
 image: "/logo-twitter.svg"
 date: 2019-01-08
-published: false
+published: true
 ---
 En mi anterior post expliqué un poco de qué queria que fuera este blog, pero no expliqué quien era yo :P 
 

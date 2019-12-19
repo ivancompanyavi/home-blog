@@ -9,7 +9,7 @@ const Wrapper = styled.main`
   background-color: ${({ theme }) => theme.color.secondary};
   display: grid;
   grid-template-columns: 1fr;
-  @media ${device.mobileL} {
+  @media ${device.laptop} {
     grid-template-columns: repeat(3, 1fr);
   }
 `

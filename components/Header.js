@@ -16,7 +16,7 @@ const Wrapper = styled.header`
 
 const Menu = styled.div`
   display: none;
-  @media ${device.mobileL} {
+  @media ${device.laptop} {
     flex: 1;
     display: flex;
     align-items: center;
@@ -50,7 +50,7 @@ const Logo = styled.div`
 const Contact = styled.div`
   display: none;
 
-  @media ${device.mobileL} {
+  @media ${device.laptop} {
     flex: 1;
     display: flex;
     align-items: center;
@@ -72,7 +72,7 @@ const Header = ({ config }) => (
   <Wrapper>
     <Menu>
       <Link href="/about">
-        About
+        <a>About</a>
       </Link>
     </Menu>
     <Link href="/">
