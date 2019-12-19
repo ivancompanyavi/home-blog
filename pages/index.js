@@ -27,6 +27,7 @@ Index.getInitialProps = async () => {
     // return all the posts
     return data
   })(require.context('../posts', true, /\.md$/))
+  .filter(p => p.document.data.published !== false)
   return {
     config,
     posts,

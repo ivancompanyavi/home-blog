@@ -9,6 +9,7 @@ const Card = styled.article`
   cursor: pointer;
   background-color: ${({theme}) => theme.color.primary};
   margin: ${({theme}) => theme.spacing.m};
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   height: 400px;
@@ -37,7 +38,7 @@ const Title = styled.h1`
 
 const Text = styled.p``
 
-const getText = (content) => {
+const getText = (content = '') => {
   const contentLength = content.length
   const result = content.substring(0, MAX_CONTENT_CHARS)
   return contentLength > MAX_CONTENT_CHARS ? `${result}...` : result
@@ -51,7 +52,7 @@ const PostCard = ({ post }) => {
         <Image role="button" tabIndex={0} alt={post.document.data.title} src={post.document.data.image} />
         <Content>
           <Title>{post.document.data.title}</Title>
-          <Text>{getText(post.document.content)}</Text>
+          <Text>{getText(post.document.data.description)}</Text>
         </Content>
       </Card>
     </Link>

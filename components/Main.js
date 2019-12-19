@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { device } from '../data/theme'
 import PostCard from './PostCard'
 
 const Wrapper = styled.main`
@@ -7,7 +8,10 @@ const Wrapper = styled.main`
   grid-area: main;
   background-color: ${({ theme }) => theme.color.secondary};
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
+  @media ${device.mobileL} {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `
 
 const Main = ({ posts }) => (
