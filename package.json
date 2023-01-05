@@ -17,7 +17,7 @@
     "gray-matter": "^4.0.2",
     "highlightjs": "^9.16.2",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.1.5",
+    "next": "^9.5.5",
     "polished": "^3.4.2",
     "raw-loader": "^4.0.0",
     "react": "^16.12.0",
@@ -31,7 +31,7 @@
     "@types/react": "^16.9.16",
     "@types/webpack-env": "^1.14.1",
     "babel-plugin-styled-components": "^1.10.6",
-    "svg-inline-loader": "^0.8.0",
+    "svg-inline-loader": "^0.8.2",
     "typescript": "^3.7.3"
   }
 }
